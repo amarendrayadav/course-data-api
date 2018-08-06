@@ -1,4 +1,4 @@
-package edu.amy.course.topic.dataaccess;
+package edu.amy.course.testMisc.dataaccess;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,15 +15,15 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "topic")
-public class Topic {
+@Document(collection = "test_miscellenous")
+public class TestEntity {
     @Id
     private UUID id;
     private String name;
     private String description;
     private BigDecimal studentsCount;
 
-    public Topic(String name, String description) {
+    public TestEntity(String name, String description) {
         this.name = name;
         this.description = description;
     }

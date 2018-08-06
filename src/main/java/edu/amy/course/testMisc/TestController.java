@@ -1,8 +1,7 @@
-package edu.amy.course.topic;
+package edu.amy.course.testMisc;
 
-import edu.amy.course.topic.dataaccess.Topic;
-import edu.amy.course.topic.dataaccess.TopicRequest;
-import edu.amy.course.topic.dataaccess.TopicResponse;
+import edu.amy.course.testMisc.dataaccess.TestRequest;
+import edu.amy.course.testMisc.dataaccess.TestResponse;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -16,42 +15,42 @@ import java.util.UUID;
 @RestController
 @RequestMapping(value = "/courses")
 @RequiredArgsConstructor
-public class TopicController {
-    private final TopicService topicService;
+public class TestController {
+    private final TestService testService;
 
     @ApiOperation(value = "Get All Topics")
     @RequestMapping(value = "/topics", method = RequestMethod.GET)
-    public List<TopicResponse> getAllTopics() {
-        return topicService.getAllTopics();
+    public List<TestResponse> getAllTopics() {
+        return testService.getAllTopics();
     }
 
     @ApiOperation(value = "Get Topic By Id")
     @RequestMapping(value = "/topics/{id}", method = RequestMethod.GET)
-    public TopicResponse getTopicById(@PathVariable UUID id) {
-        return topicService.getTopicById(id);
+    public TestResponse getTopicById(@PathVariable UUID id) {
+        return testService.getTopicById(id);
     }
 
     @ApiOperation(value = "Add new topics")
     @RequestMapping(method = RequestMethod.POST, value = "/topics")
-    public void addNewTopic(@RequestBody TopicRequest topicRequest) {
-        topicService.addNewTopic(topicRequest);
+    public void addNewTopic(@RequestBody TestRequest testRequest) {
+        testService.addNewTopic(testRequest);
     }
 
     @ApiOperation(value = "Update Topic")
     @RequestMapping(method = RequestMethod.PUT, value = "/topics/{id}")
-    public void updateTopic(@RequestBody TopicRequest topicRequest, @PathVariable UUID id) {
-        topicService.updateTopic(topicRequest, id);
+    public void updateTopic(@RequestBody TestRequest testRequest, @PathVariable UUID id) {
+        testService.updateTopic(testRequest, id);
     }
 
     @ApiOperation(value = "Delete By Id")
     @RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}")
     public void deleteTopic(@PathVariable UUID id) {
-        topicService.deleteTopic(id);
+        testService.deleteTopic(id);
     }
 
     @ApiOperation(value = "Delete")
     @RequestMapping(method = RequestMethod.DELETE, value = "/topics")
     public void deleteAll() {
-        topicService.deleteAll();
+        testService.deleteAll();
     }
 }

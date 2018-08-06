@@ -1,4 +1,4 @@
-package edu.amy.course.topic.dataaccess;
+package edu.amy.course.testMisc.dataaccess;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
@@ -11,7 +11,7 @@ import java.util.UUID;
  */
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TopicRequest {
+public class TestRequest {
     private UUID id;
     private String name;
     private String description;

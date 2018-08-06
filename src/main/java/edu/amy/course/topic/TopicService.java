@@ -35,16 +35,18 @@ public class TopicService {
     }
 
     public void addNewTopic(final TopicRequest topicRequest) {
+        log.debug("request {} ", topicRequest);
         this.topicRepository.save(topicAdapter.convert(topicRequest));
     }
 
-    public void updateTopic(final Topic topicRequest, final UUID id) {
+    public void updateTopic(final TopicRequest topicRequest, final UUID id) {
         final Topic topic = topicRepository.findOne(id);
         if (nonNull(topic)) {
             topic.setName(topicRequest.getName());
             topic.setDescription(topicRequest.getDescription());
             log.debug("topic updated {} ", topic);
         }
+        topicRepository.save(topic);
     }
 
     public void deleteTopic(final UUID id) {
